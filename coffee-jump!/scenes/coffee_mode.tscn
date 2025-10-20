@@ -1,39 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://pcibm1safwu6"]
+[gd_scene load_steps=4 format=3 uid="uid://pcibm1safwu6"]
 
 [ext_resource type="PackedScene" uid="uid://brnh746ntwbl3" path="res://scenes/coffee_bean.tscn" id="1_g41s2"]
-[ext_resource type="Texture2D" uid="uid://b41di85hksix8" path="res://unnamed.jpg" id="2_b8dvw"]
+[ext_resource type="Script" uid="uid://dkw2xrpuijchv" path="res://scripts/coffee_mode.gd" id="1_j8578"]
+[ext_resource type="PackedScene" uid="uid://b027024qict03" path="res://scenes/Platform.tscn" id="3_3isco"]
 
 [node name="coffee_mode" type="Node2D"]
-position = Vector2(344, 171)
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -169.0
-offset_top = 93.0
-offset_right = 147.0
-offset_bottom = 111.0
-color = Color(0.25341454, 0.09322538, 0.013903133, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect"]
+script = ExtResource("1_j8578")
+player_path = NodePath("coffee_bean")
 
 [node name="coffee_bean" parent="." instance=ExtResource("1_g41s2")]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="Camera2D" type="Camera2D" parent="coffee_bean"]
+limit_left = -500
+limit_top = -120
+limit_right = 500
+position_smoothing_enabled = true
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(344, 171)
-motion_mirroring = Vector2(560, 800)
-
-[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
-offset_left = 76.0
-offset_top = -289.0
-offset_right = 1754.0
-offset_bottom = 1478.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_b8dvw")
-expand_mode = 1
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Plateforme" type="StaticBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Plateforme"]
+[node name="Platform" parent="." instance=ExtResource("3_3isco")]
+position = Vector2(0, 99)
