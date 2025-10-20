@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmubssijsy46"]
+
+[ext_resource type="PackedScene" uid="uid://brnh746ntwbl3" path="res://scenes/coffee_bean.tscn" id="1_o5qli"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(0, -64)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, 64)
