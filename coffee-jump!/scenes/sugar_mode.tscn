@@ -1,17 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://nfnfn4twb07o"]
+[gd_scene load_steps=5 format=3 uid="uid://nfnfn4twb07o"]
 
 [ext_resource type="PackedScene" uid="uid://c83buur7nf6wq" path="res://scenes/sugar.tscn" id="1_68idp"]
+[ext_resource type="Script" uid="uid://co2fr6pb08wsp" path="res://scripts/sugar_mode.gd" id="1_namnb"]
+[ext_resource type="PackedScene" uid="uid://b027024qict03" path="res://scenes/Platform.tscn" id="2_f7oly"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7oly"]
 size = Vector2(315, 18)
 
 [node name="sugar_mode" type="Node2D"]
+script = ExtResource("1_namnb")
+player_node_path = NodePath("sugar")
 
 [node name="sugar" parent="." instance=ExtResource("1_68idp")]
 position = Vector2(70, -67)
 
 [node name="Camera2D2" type="Camera2D" parent="sugar"]
+limit_left = -500
+limit_right = 500
 limit_bottom = 120
+position_smoothing_enabled = true
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(93, -7)
@@ -26,3 +33,9 @@ offset_top = 70.0
 offset_right = 158.0
 offset_bottom = 88.0
 color = Color(0.25341454, 0.09322538, 0.013903133, 1)
+
+[node name="Platform" parent="." instance=ExtResource("2_f7oly")]
+position = Vector2(-157, -1)
+
+[node name="Platform2" parent="." instance=ExtResource("2_f7oly")]
+position = Vector2(135, -229)
