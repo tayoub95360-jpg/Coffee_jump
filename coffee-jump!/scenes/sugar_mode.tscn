@@ -1,3 +1,28 @@
-[gd_scene format=3 uid="uid://nfnfn4twb07o"]
+[gd_scene load_steps=3 format=3 uid="uid://nfnfn4twb07o"]
+
+[ext_resource type="PackedScene" uid="uid://c83buur7nf6wq" path="res://scenes/sugar.tscn" id="1_68idp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7oly"]
+size = Vector2(315, 18)
 
 [node name="sugar_mode" type="Node2D"]
+
+[node name="sugar" parent="." instance=ExtResource("1_68idp")]
+position = Vector2(70, -67)
+
+[node name="Camera2D2" type="Camera2D" parent="sugar"]
+limit_bottom = 120
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(93, -7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(0, 79)
+shape = SubResource("RectangleShape2D_f7oly")
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_left = -158.0
+offset_top = 70.0
+offset_right = 158.0
+offset_bottom = 88.0
+color = Color(0.25341454, 0.09322538, 0.013903133, 1)

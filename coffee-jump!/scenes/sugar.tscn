@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://c83buur7nf6wq"]
+[gd_scene load_steps=4 format=3 uid="uid://c83buur7nf6wq"]
 
-[node name="sugar" type="Node2D"]
+[ext_resource type="Script" uid="uid://bekelk5qgpf4o" path="res://scripts/sugar.gd" id="1_p1ave"]
+[ext_resource type="Texture2D" uid="uid://c8sdoj4k8pyvl" path="res://icon.svg" id="1_rlw7j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1ave"]
+size = Vector2(124, 124)
+
+[node name="sugar" type="CharacterBody2D"]
+script = ExtResource("1_p1ave")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rlw7j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_p1ave")
