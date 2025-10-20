@@ -1,29 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://brnh746ntwbl3"]
+[gd_scene load_steps=3 format=3 uid="uid://brnh746ntwbl3"]
 
-[ext_resource type="Texture2D" uid="uid://c8sdoj4k8pyvl" path="res://icon.svg" id="1_3vyb7"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
-atlas = ExtResource("1_3vyb7")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qhqgy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g2els")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://onvmv6v7g26f" path="res://Coffee bean.png" id="1_hk6lj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
-size = Vector2(124, 126)
+size = Vector2(68, 27)
 
 [node name="coffee_bean" type="CharacterBody2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_qhqgy")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 34)
 shape = SubResource("RectangleShape2D_dqkch")
+
+[node name="Coffee bean" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Coffee bean"]
+position = Vector2(-2.9999924, 0.99999994)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_hk6lj")
