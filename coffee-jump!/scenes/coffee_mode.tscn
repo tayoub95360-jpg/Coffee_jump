@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://brnh746ntwbl3" path="res://scenes/coffee_bean.tscn" id="1_g41s2"]
 [ext_resource type="Script" uid="uid://dkw2xrpuijchv" path="res://scripts/coffee_mode.gd" id="1_j8578"]
-[ext_resource type="PackedScene" uid="uid://b027024qict03" path="res://scenes/Platform.tscn" id="3_3isco"]
+[ext_resource type="PackedScene" uid="uid://b027024qict03" path="res://scenes/platform.tscn" id="3_3isco"]
 
 [node name="coffee_mode" type="Node2D"]
 script = ExtResource("1_j8578")
