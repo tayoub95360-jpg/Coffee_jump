@@ -1,19 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://brnh746ntwbl3"]
+[gd_scene load_steps=6 format=3 uid="uid://brnh746ntwbl3"]
 
 [ext_resource type="Script" uid="uid://b28l6t8110f57" path="res://scripts/coffee_bean.gd" id="1_7hl6s"]
-[ext_resource type="Texture2D" uid="uid://onvmv6v7g26f" path="res://Coffee bean.png" id="1_hk6lj"]
+[ext_resource type="Texture2D" uid="uid://3l7vxkiqk7am" path="res://Coffee fall.png" id="3_y4foy"]
+[ext_resource type="Texture2D" uid="uid://c6tdg1kdm4oro" path="res://Coffee posee.png" id="4_8ulsh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
-size = Vector2(67, 91.5)
+size = Vector2(134, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xnr0f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_y4foy")
+}],
+"loop": true,
+"name": &"Chute",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8ulsh")
+}],
+"loop": true,
+"name": &"posée",
+"speed": 5.0
+}]
 
 [node name="coffee_bean" type="CharacterBody2D"]
 script = ExtResource("1_7hl6s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6.5, 1.75)
+position = Vector2(-14, 44.5)
 shape = SubResource("RectangleShape2D_dqkch")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2.9999924, 0.99999994)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_hk6lj")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_xnr0f")
+animation = &"Chute"

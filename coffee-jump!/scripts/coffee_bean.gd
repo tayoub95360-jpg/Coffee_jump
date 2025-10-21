@@ -7,6 +7,9 @@ extends CharacterBody2D
 @export var damp_ground: float = 12.0         # ralenti si on lâche les touches (sol)
 @export var damp_air: float = 6.0             # ralenti si on lâche les touches (air)
 
+@onready var anim = $anim
+@onready var screen_size = get_viewport_rect().size
+
 @export var gravity: float = 380.0            # gravité faible -> chute lente
 @export var terminal_velocity: float = 230.0  # vitesse limite de chute (IMPORTANT)
 @export var ground_slide_speed: float = 60.0  # vitesse verticale quand on “colle” au sol
@@ -45,9 +48,15 @@ func _physics_process(delta: float) -> void:
 	if velocity.y > terminal_velocity:
 		velocity.y = terminal_velocity
 
+
+	if is_on_floor():
+		anim.play("posée")
+	else:
+		anim.play("Chute")
 	# Pas de rebond : si on est “sur le sol”, on garde une petite descente
 	if is_on_floor() and velocity.y > ground_slide_speed:
 		velocity.y = ground_slide_speed
-
+	position.x=wrapf(position.x,-520, 520)
+	
 	# Déplacement physique
 	move_and_slide()

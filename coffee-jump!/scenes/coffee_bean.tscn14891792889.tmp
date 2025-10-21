@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://brnh746ntwbl3"]
+
+[ext_resource type="Script" uid="uid://b28l6t8110f57" path="res://scripts/coffee_bean.gd" id="1_7hl6s"]
+[ext_resource type="Texture2D" uid="uid://onvmv6v7g26f" path="res://Coffee bean.png" id="1_hk6lj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
+size = Vector2(67, 91.5)
+
+[node name="coffee_bean" type="CharacterBody2D"]
+script = ExtResource("1_7hl6s")
+max_speed = null
+accel_ground = null
+accel_air = null
+damp_ground = null
+damp_air = null
+gravity = null
+terminal_velocity = null
+ground_slide_speed = null
+floor_snap = null
+death_y = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6.5, 1.75)
+shape = SubResource("RectangleShape2D_dqkch")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.9999924, 0.99999994)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_hk6lj")

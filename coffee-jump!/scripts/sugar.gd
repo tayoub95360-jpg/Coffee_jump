@@ -19,6 +19,7 @@ func _physics_process(delta):
 	# Si sur le sol, saute automatiquement
 	if is_on_floor():
 		velocity.y = -jump_strength
+	position.x=wrapf(position.x,-520, 520)
 
 	# Déplacement physique
 	move_and_slide()
